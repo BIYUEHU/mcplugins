@@ -1,0 +1,359 @@
+@font-face {
+  font-family:"Minecraft";
+  src:url("../fonts/Minecraft.ttf");
+}
+
+.div_ziti {
+  font-family:"Minecraft";  
+  color: white
+}
+
+.div_ziti_black {
+  font-family:"Minecraft";  
+  color: black
+}
+
+.div_ziti_green {
+  font-family:"Minecraft";  
+  color: green
+}
+
+.div_ziti_qianlan {
+  font-family:"Minecraft";
+  color: #00e1ff
+}
+
+.div_ziti_bule {
+  font-family:"Minecraft";  
+  color: blue
+}
+
+.div_ziti_pink {
+  font-family:"Minecraft";  
+  color: pink
+}
+
+.div_ziti_purple {
+  font-family:"Minecraft";  
+  color: purple
+}
+
+.div_ziti_brown {
+  font-family:"Minecraft";  
+  color: brown
+}
+
+.div_ziti_red {
+  font-family:"Minecraft";
+  color: red
+}
+
+.div_ziti_yellow {
+	font-family:"Minecraft";
+  color: yellow
+}
+
+.div_zitiSize_1 {
+  /* font-weight：bold */
+  font-size: 30px;
+}
+
+.div_zitiSize_2 {
+  /* font-weight：bold */
+  font-size: 25px;
+}
+
+.div_zitiSize_3 {
+  /* font-weight：bold */
+  font-size: 20px;
+}
+
+.div_zitiSize_4 {
+  /* font-weight：bold */
+  font-size: 15px;
+}
+
+.div_zitiSize_5 {
+  /* font-weight：bold */
+  font-size: 16px;
+}
+
+.div_zhuti {
+	/* height: 70vh;
+	width: 100vw;
+	justify-content: center;
+  align-items: center; */
+  display: flex;
+	height: 70vh;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+}
+
+.div_beijing_wai {
+	margin-top: 40px;
+  font-size:16px;
+  color:#4C4C4C;
+  font-family:"Minecraft";
+  position:relative;
+  margin-top:10vh;
+  background-color:#C6C6C6;  /* 四周边框颜色 */
+  opacity: 1.0;  /* 透明效果 */
+  padding:7px;  /* 四周边框厚度 */
+  padding-top:none;
+  box-shadow:
+    /* Right & bottom */
+    4px 0 #555,
+    6px 0 black,
+    0 4px #555,
+    0 6px black,
+    /* Left & top */
+    -4px 0 white,
+    -6px 0 black,
+    0 -4px white,
+    0 -6px black,
+    /* Corner right bottom */
+    4px 2px #555,
+    2px 4px #555,
+    2px 6px black,
+    6px 2px black,
+    4px 4px black,
+    /* Corner top right */
+    2px -2px #C6C6C6,
+    4px -2px black,
+    2px -4px black,
+    /* Corner top left */
+    -4px -2px white,
+    -2px -4px white,
+    -2px -6px black,
+    -6px -2px black,
+    -4px -4px black,
+    /* Corner bottom left */
+    -2px 2px #C6C6C6,
+    -4px 2px black,
+    -2px 4px black;
+}
+
+.div_beijing_nei {  
+  font-family:"Minecraft";  
+  color: white;
+  display:flex;
+  flex-direction:column; 
+  line-height:5px;  /* 文字间距 */   
+  /* color:white; */
+  margin-top:13px;  /* 顶部边框厚度 */
+  background-color:#6B6B6B;  /* 四周颜色 */
+  opacity: 1.0;  /* 透明效果 */
+  padding:20px 10px 20px 10px;  /* 四周保留部分 */
+  /* box-shadow:
+    Right & bottom
+    2px 2px white,
+    2px 0 white,
+    0 2px white,
+    Left & top
+    -2px -2px #393939,
+    -2px 0 #393939,
+    0 -2px #393939,
+    Corner top right
+    2px -2px #6B6B6B,
+    Corner bottom left
+    -2px 2px #6B6B6B; */
+}
+
+.div_beijing_wai1 {
+	margin-top: 40px;
+  font-size:16px;
+  color:#4C4C4C;
+  font-family:"Minecraft";
+  position:relative;
+  margin-top:10vh;
+  background-color:#C6C6C6;  /* 四周边框颜色 */
+  opacity: 1.0;  /* 透明效果 */
+  padding:7px;  /* 四周边框厚度 */
+  padding-top:none;
+  box-shadow:
+    /* Right & bottom */
+    4px 0 #555,
+    6px 0 black,
+    0 4px #555,
+    0 6px black,
+    /* Left & top */
+    -4px 0 white,
+    -6px 0 black,
+    0 -4px white,
+    0 -6px black,
+    /* Corner right bottom */
+    4px 2px #555,
+    2px 4px #555,
+    2px 6px black,
+    6px 2px black,
+    4px 4px black,
+    /* Corner top right */
+    2px -2px #C6C6C6,
+    4px -2px black,
+    2px -4px black,
+    /* Corner top left */
+    -4px -2px white,
+    -2px -4px white,
+    -2px -6px black,
+    -6px -2px black,
+    -4px -4px black,
+    /* Corner bottom left */
+    -2px 2px #C6C6C6,
+    -4px 2px black,
+    -2px 4px black;
+}
+
+.div_beijing_nei1 {  
+  display:flex;
+  flex-direction:column; 
+  line-height:5px;  /* 文字间距 */   
+  /* color:white; */
+  margin-top:13px;  /* 顶部边框厚度 */
+  background-color:#6B6B6B;  /* 四周颜色 */
+  opacity: 1.0;  /* 透明效果 */
+  padding:0px 0px 0px 0px;  /* 四周保留部分 */
+  /* box-shadow:
+    Right & bottom
+    2px 2px white,
+    2px 0 white,
+    0 2px white,
+    Left & top
+    -2px -2px #393939,
+    -2px 0 #393939,
+    0 -2px #393939,
+    Corner top right
+    2px -2px #6B6B6B,
+    Corner bottom left
+    -2px 2px #6B6B6B; */
+}
+
+.button {
+  color:#4C4C4C;
+  font-family:"Minecraft";
+  background-color:#C6C6C6;
+  padding:12px;
+  margin:5px 5px 5px 0px;
+  width:100%;
+  text-align:center;
+  box-shadow:
+    /* Right & bottom */
+    2px 2px #555,
+    2px 0 #555,
+    0 2px #555,
+    /* Left & top */
+    -2px -2px white,
+    -2px 0 white,
+    0 -2px white,
+    /* Corner top right */
+    2px -2px #C6C6C6,
+    /* Corner bottom left */
+    -2px 2px #C6C6C6,
+    /* Border */
+    4px 4px black,
+    0 4px black,
+    4px 0 black,
+    -4px -4px black,
+    0 -4px black,
+    -4px 0 black,
+    4px -4px black,
+    -4px 4px black;
+}
+
+.button:hover {
+  color:white;
+  background-color:#43A01C;
+  box-shadow:
+    /* Right & bottom */
+    2px 2px #037300,
+    2px 0 #037300,
+    0 2px #037300,
+    /* Left & top */
+    -2px -2px #37D61E,
+    -2px 0 #37D61E,
+    0 -2px #37D61E,
+    /* Corner top right */
+    2px -2px #43A01C,
+    /* Corner bottom left */
+    -2px 2px #43A01C,
+    /* Border */
+    4px 4px white,
+    0 4px white,
+    4px 0 white,
+    -4px -4px white,
+    0 -4px white,
+    -4px 0 white,
+    4px -4px white,
+    -4px 4px white;
+}
+
+.button1 {
+  color:#4C4C4C;
+  font-family:"Minecraft";
+  background-color:#C6C6C6;
+  padding:12px;
+  margin:5px 5px 5px 0px;
+  width:100%;
+  text-align:center;
+  box-shadow:
+    /* Right & bottom */
+    /* 2px 2px #555,
+    2px 0 #555,
+    0 2px #555, */
+    /* Left & top */
+    -2px -2px white,
+    -2px 0 white,
+    0 -2px white,
+    /* Corner top right */
+    2px -2px #C6C6C6,
+    /* Corner bottom left */
+    -2px 2px #C6C6C6,
+    /* Border */
+    /* 4px 4px black,
+    0 4px black,
+    4px 0 black,
+    -4px -4px black,
+    0 -4px black,
+    -4px 0 black,
+    4px -4px black,
+    -4px 4px black; */
+}
+
+.button1:hover {
+  color:white;
+  background-color:#43A01C;
+  box-shadow:
+    /* Right & bottom */
+    2px 2px #037300,
+    2px 0 #037300,
+    0 2px #037300,
+    /* Left & top */
+    -2px -2px #37D61E,
+    -2px 0 #37D61E,
+    0 -2px #37D61E,
+    /* Corner top right */
+    2px -2px #43A01C,
+    /* Corner bottom left */
+    -2px 2px #43A01C,
+    /* Border */
+    4px 4px white,
+    0 4px white,
+    4px 0 white,
+    -4px -4px white,
+    0 -4px white,
+    -4px 0 white,
+    4px -4px white,
+    -4px 4px white;
+}
+
+.close-button {
+	font-family:"Minecraft";
+  position:absolute;
+  right:2px;
+  top:2px;
+  padding:0 8px 5px 10px;
+}
+
+.close-button:hover {
+  background-color:#AEAEAE;
+}

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <script src="../../UIEngine.js"></script>
+  <link rel="stylesheet" href="../../styles/styles2.css" />
+</head>
+
+<body>
+  <div class="div_zhuti">
+    <div class="div_beijing_wai" style="width:400px;margin-top:30vh;">
+      <div class='div_ziti_green' style="text-align:center;">防沉迷</div>
+      <div id="close" class="close-button">x</div>
+      <div class="div_beijing_nei">
+        <p class='div_ziti_red'>请先实名认证</p>        
+        <div id='yes' class="button" style="line-height:150%;">确定</div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  let scriptEngineHandle = null;
+  engine.on("facet:updated:core.scripting", function (scriptEngine) {
+    scriptEngineHandle = scriptEngine;
+  });
+  engine.trigger("facet:request", ["core.scripting"]);
+  let close = document.getElementById("close");
+  close.addEventListener("click", function () {
+    scriptEngineHandle.triggerEvent("close_r18ui3");
+  })
+  let yes = document.getElementById("yes");
+  close.addEventListener("click", function () {
+    scriptEngineHandle.triggerEvent("close_r18ui3");
+  });
+</script>
+</html>

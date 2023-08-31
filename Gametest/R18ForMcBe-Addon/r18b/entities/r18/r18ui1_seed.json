@@ -1,0 +1,38 @@
+{
+    "format_version": "1.8.0",
+    "minecraft:entity": {
+      "description": {
+        "identifier": "byh:r18ui1_seed",
+        "is_spawnable": false,
+        "is_summonable": true,
+        "is_experimental": false
+      },
+      "components": {
+/*         "minecraft:type_family": {
+          "family": [
+            "despawnear"
+          ]
+        },
+        "minecraft:despawn": {
+          "filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "self",
+                "value": "despawnear"
+              }
+            ]
+          }
+        }, */
+        "minecraft:health": {
+          "value": 1
+        },
+        "minecraft:collision_box": {
+         "width": 0.0,
+         "height": 0.0
+       },
+        "minecraft:fire_immune": true,
+        "minecraft:physics": {}
+      }
+    }
+  }
