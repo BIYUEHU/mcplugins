@@ -1,0 +1,17 @@
+{
+   "format_version" : 1,
+   "header" : {
+      "description" : "OSPE Shader D",
+      "name" : "OURCRAFT Shader Portable Edition V2.0",
+      "uuid" : "84c2d0ea-2d2a-11e9-b210-d663bd250d93",
+      "version" : [ 2, 0, 0 ]
+   },
+   "modules" : [
+      {
+         "description" :"!" ,
+         "type" : "resources",
+         "uuid" : "48bf520c-2d2a-11e9-b210-d663bd873d93",
+         "version" : [ 2, 0, 0 ]
+      }
+   ]
+}

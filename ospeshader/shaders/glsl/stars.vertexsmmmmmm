@@ -1,0 +1,16 @@
+
+#include "vertexVersionSimple.h"
+#include "uniformWorldConstants.h"
+
+attribute mediump vec4 POSITION;
+attribute vec4 COLOR;
+
+varying vec4 color;
+varying highp vec3 w_pos;
+
+void main()
+{
+    gl_Position = WORLDVIEWPROJ * POSITION;
+    w_pos =POSITION.xyz;
+    color = COLOR;
+}

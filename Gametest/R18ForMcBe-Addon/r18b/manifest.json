@@ -1,17 +1,25 @@
 {
-    "format_version": 1,
-    "header": {
-        "description": "§bBy BIYUEHU\n§e防沉迷§r",
-        "name": "R18 For Minecraft",
-        "uuid": "c4bc650f-200f-45d6-90ef-ea2f173c5e50",
-        "version": [1, 0, 0]
-    },
-    "modules": [
-        {        
-            "description": "§bBy BIYUEHU\n§e防沉迷§r",
-            "type": "client_data",
-            "uuid": "36c593ea-e39a-42dc-a22d-15fd9ae01b94",
-            "version": [1, 0, 0]
-        }
+  "format_version": 1,
+  "header": {
+    "description": "§b\n§e防沉迷§r",
+    "name": "R18 For Minecraft",
+    "uuid": "c4bc650f-200f-45d6-90ef-ea2f173c5e50",
+    "version": [
+      1,
+      0,
+      0
     ]
+  },
+  "modules": [
+    {
+      "description": "§b\n§e防沉迷§r",
+      "type": "client_data",
+      "uuid": "36c593ea-e39a-42dc-a22d-15fd9ae01b94",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
 }

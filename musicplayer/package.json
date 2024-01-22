@@ -1,0 +1,23 @@
+{
+  "name": "musicplayer",
+  "version": "1.0.0",
+  "description": "MusicPlayer WebSocket By 碧月狐dada",
+  "author": "碧月狐dada",
+  "main": "index.js",
+  "scripts": {
+    "mp": "node index.js"
+  },
+  "homepage": "https://github.com/biyuehu/musicplayer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/biyuehu/musicplayer.git"
+  },
+  "dependencies": {
+    "ws": "6.1.0"
+  },
+  "keywords": [
+    "minecraft",
+    "websocket",
+    "mcbe"
+  ]
+}

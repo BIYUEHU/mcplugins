@@ -1,0 +1,33 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "§l§9ULANG",
+    "description": "§6ULANG beta V0.1.0 1.18.X\n§b \n§eResource Pack",
+    "uuid": "3e5953d9-09ec-4e53-ab52-f08944700cfc",
+    "version": [
+      0,
+      1,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      17,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "§6ULANG beta V0.1.0 1.18.X\n§b \n§eResource Pack",
+      "type": "resources",
+      "uuid": "804523b3-3513-470b-bde9-be010c84c16f",
+      "version": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "capabilities": [
+    "experimental_custom_ui"
+  ]
+}

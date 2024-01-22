@@ -1,0 +1,30 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "§l§9ULANG",
+    "description": "§6ULANG beta V0.1.0 1.18.X\n§b \n§1Behavior Pack",
+    "uuid": "5dd3b2de-2443-451e-b8d6-82bb9e290f40",
+    "version": [
+      0,
+      1,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      17,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "§6ULANG beta V0.1.0 1.18.X\n§b \n§1Behavior Pack",
+      "type": "client_data",
+      "uuid": "74a61ce9-8650-4707-b20e-768a82072639",
+      "version": [
+        0,
+        1,
+        0
+      ]
+    }
+  ]
+}

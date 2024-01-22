@@ -1,0 +1,12 @@
+
+
+#include "fragmentVersionSimple.h"
+#include "settings.h"
+
+varying vec4 color;
+varying highp vec3 w_pos;
+
+void main()
+{
+	gl_FragColor = StarsEffect(color,w_pos);
+}

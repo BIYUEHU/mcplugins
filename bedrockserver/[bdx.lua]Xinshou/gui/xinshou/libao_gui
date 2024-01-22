@@ -1,0 +1,3 @@
+type=simple,cb=libao_gui,title=新手礼包,content=§e每人可有一次机会领取\n请问您确定要领取吗？
+text=§2领取
+text=§4退出

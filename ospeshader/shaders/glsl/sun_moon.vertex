@@ -1,0 +1,28 @@
+
+#include "vertexVersionCentroidUV.h"
+#include "uniformWorldConstants.h"
+#include "uniformShaderConstants.h"
+
+attribute POS4 POSITION;
+attribute vec2 TEXCOORD_0;
+
+varying highp vec3 w_pos;
+varying highp vec3 v_pos;
+varying highp vec4 lens;
+
+void main()
+{
+   
+   POS4 pp =POSITION*vec4(8.0,1.0,8.0,1.0);
+   pp.y *=(1.0,10.0,clamp(length(POSITION.xyz),0.0,1.0));
+   POS4 pos =WORLDVIEWPROJ * pp;//*CURRENT_COLOR;
+
+w_pos = POSITION.xyz * vec3(15.0, 1.0, 15.0);
+
+   gl_Position = pos;
+   v_pos =pos.xyz;
+    
+lens = POSITION * WORLDVIEWPROJ;
+
+    uv = TEXCOORD_0;
+}

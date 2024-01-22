@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<script src="../../UIEngine.js"></script>
+	<script src="../../scripts/script1.js"></script>
+<link rel="stylesheet" href="../../styles/styles2.css" />
+</head>
+
+<body>  
+  <div class="div_zhuti">
+    <div class="div_beijing_wai" style="width:900px;margin-top:30vh;">  <!-- 宽度 900大  500中 300小-->
+      <div style="text-align:center;">问卷调查</div>
+      <div id="close" class="close-button">x</div>
+      <div class="div_beijing_nei">
+      <!-- <div id="time" class="button"style="line-height:150%;">time</div>
+      <div id="weather" class="button"style="line-height:150%;">weather</div>
+      <div id="menu" class="button"style="line-height:150%;">admins menu</div>
+      <div id="command" class="button"style="line-height:150%;">Write a command</div>
+      <div id="nbt" class="button"style="line-height:150%;">NBT commands</div> -->
+      <p class='div_ziti_pink'style="text-align:center;">我们这有一份问卷需要您填写，您愿意吗？</p> 
+      <img width=150px height=150px src='../../imgs/touxiang.png' ></img>
+      <h1 class='div_ziti_yellow'></h1> 
+      <img src='../../imgs/air1.png' height=30px></img>
+      <div id='wenjuanui_start_no1html' class="button" style="line-height:150%;">我愿意</div>
+      <div id='wenjuanui_start_exithtml' class="button" style="line-height:150%;">我不愿意</div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+ let scriptEngineHandle = null;
+engine.on("facet:updated:core.scripting", function (scriptEngine) {
+  scriptEngineHandle = scriptEngine;
+  });
+  engine.trigger("facet:request", ["core.scripting"]);
+
+  let close = document.getElementById("close");
+  close.addEventListener("click", function () {
+  scriptEngineHandle.triggerEvent("wenjuanui_close_wenjuanui");
+  });
+  let wenjuanui_start_no1html = document.getElementById("wenjuanui_start_no1html");
+  wenjuanui_start_no1html.addEventListener("click", function () {
+  scriptEngineHandle.triggerEvent("wenjuanui_start_no1html");
+  });
+  let wenjuanui_start_exithtml = document.getElementById("wenjuanui_start_exithtml");
+  wenjuanui_start_exithtml.addEventListener("click", function () {
+  scriptEngineHandle.triggerEvent("wenjuanui_start_exithtml");
+  });
+</script>
+</html>

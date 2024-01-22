@@ -1,0 +1,208 @@
+// __multiversion__
+// This signals the loading code to prepend either #version 100 or #version 300 es as apropriate.
+
+#include "vertexVersionCentroid.h"
+#if __VERSION__ >= 300
+	#ifndef BYPASS_PIXEL_SHADER
+		_centroid out vec2 uv0;
+		_centroid out vec2 uv1;
+	#endif
+#else
+	#ifndef BYPASS_PIXEL_SHADER
+		varying vec2 uv0;
+		varying vec2 uv1;
+	#endif
+#endif
+
+#ifndef BYPASS_PIXEL_SHADER
+	varying vec4 color;
+#endif
+
+#ifdef FOG
+	varying vec4 fogColor;
+#endif
+
+#include "uniformWorldConstants.h"
+#include "uniformPerFrameConstants.h"
+#include "uniformShaderConstants.h"
+#include "uniformRenderChunkConstants.h"
+
+attribute POS4 POSITION;
+attribute vec4 COLOR;
+attribute vec2 TEXCOORD_0;
+attribute vec2 TEXCOORD_1;
+
+const float rA = 1.0;
+const float rB = 1.0;
+const vec3 UNIT_Y = vec3(0,1,0);
+const float DIST_DESATURATION = 56.0 / 255.0; //WARNING this value is also hardcoded in the water color, don'tchange
+varying vec3 xyz;
+varying vec3 screen_pos;
+varying vec3 Pos;
+varying float zz;
+varying float t;
+void main()
+{
+    POS4 worldPos;
+#ifdef AS_ENTITY_RENDERER
+		POS4 pos = WORLDVIEWPROJ * POSITION;
+		worldPos = pos;
+#else
+    worldPos.xyz = (POSITION.xyz * CHUNK_ORIGIN_AND_SCALE.w) + CHUNK_ORIGIN_AND_SCALE.xyz;
+    worldPos.w = 1.0;
+
+    // Transform to view space before projection instead of all at once to avoid floating point errors
+    // Not required for entities because they are already offset by camera translation before rendering
+    // World position here is calculated above and can get huge
+    POS4 pos = WORLDVIEW * worldPos;
+    pos = PROJ * pos;
+#endif
+    gl_Position = pos;
+
+#ifndef BYPASS_PIXEL_SHADER
+    uv0 = TEXCOORD_0;
+    uv1 = TEXCOORD_1;
+	color = COLOR;
+#endif
+
+///// find distance from the camera
+
+#if defined(FOG) || defined(BLEND)
+	#ifdef FANCY
+		vec3 relPos = -worldPos.xyz;
+		float cameraDepth = length(relPos);
+	#else
+		float cameraDepth = pos.z;
+	#endif
+#endif
+
+/*
+抄袭者:抄袭!我要抄袭!
+杰哥:你看这个add作者，才写了几行代码，就醉了，真是逊啊!
+抄袭者:是啊，这个add作者就是逊啊哈哈
+杰哥:听你那么说，你很勇哦！
+抄袭者:开玩笑，我超勇的，我超会抄袭的啦！
+杰哥:我的房间里有些好康的，想不想懂?
+抄袭者:是什么啊?是新的add代码哦?(嫌弃脸)
+杰哥:什么代码，比add代码还刺激!还可以教你登dua郎!
+抄袭者:登dua郎?那是什么哦?
+杰哥:你想懂?来，到我的房间康康
+(杰哥拉着抄袭者的手走到了房间里)
+杰哥:来，给你看好康的(杰哥打开了电脑)
+抄袭者:杰，杰哥，这是什么啊?
+杰哥:哎呦！你对我的光影代码感兴趣啦？!
+杰哥:来，让我康康你抄袭了多少代码啊！
+抄袭者:杰哥不要啦！
+(抄袭者推开了杰哥)
+杰哥:听话，让我看看!
+抄袭者:不要!
+(杰哥对抄袭者进行了农夫三拳，抄袭者倒在床上)
+抄袭者:杰哥不要，杰哥不要啊!
+~～～
+(第二天早上)
+杰哥:你小子想把我灌醉，还想打开电脑抄袭我的光影代码，逊!
+杰哥:对了，昨天晚上发生的事，不要对别的抄袭者说
+杰哥:我知道你的倒卖群在哪，也知道你的QQ号是多少
+*/
+
+//ZHIWUHUANGDONG
+vec3 wave= worldPos.xyz + VIEW_POS;
+vec3 wave1= POSITION.xyz;
+#ifdef ALPHA_TEST
+ if(color.g > color.r)
+{
+  gl_Position.x += sin(TIME * 3. + wave1.x + wave1.y + wave1.z) * 0.05;
+if(FOG_CONTROL.x < 0.55 && FOG_CONTROL.x > 0.1){
+gl_Position.x += sin(TIME * 5.5 + wave1.x+wave1.z+wave.x+wave1.z+wave1.y) * sin(wave1.x) * 0.12;
+}
+} 
+
+#endif 
+
+//SHUIPINGMIANHUANGDONG
+if(color.r<color.g&&color.r*3.1<color.b&&color.g<color.b*1.25&&color.b*color.b>color.r*color.g)
+{
+  gl_Position.y += sin(TIME * 2. + wave.x + wave.y + wave.z) * 0.15;
+} 
+
+
+///// apply fog
+
+#ifdef FOG
+	float len = cameraDepth / RENDER_DISTANCE;
+	#ifdef ALLOW_FADE
+		len += RENDER_CHUNK_FOG_ALPHA;
+	#endif
+
+    fogColor.rgb = FOG_COLOR.rgb;
+      
+	fogColor.a = clamp((len - FOG_CONTROL.x) / (FOG_CONTROL.y - FOG_CONTROL.x), 0.0, 1.0);
+#endif
+zz=sqrt(FOG_COLOR.r+FOG_COLOR.g+FOG_COLOR.b)*0.33;
+///// blended layer (mostly water) magic
+#ifdef BLEND
+	//Mega hack: only things that become opaque are allowed to have vertex-driven transparency in the Blended layer...
+	//to fix this we'd need to find more space for a flag in the vertex format. color.a is the only unused part
+	bool shouldBecomeOpaqueInTheDistance = color.a < 0.95;
+	if(shouldBecomeOpaqueInTheDistance) {
+		#ifdef FANCY  /////enhance water
+			float cameraDist = cameraDepth / FAR_CHUNKS_DISTANCE;
+			color = COLOR;
+		#else
+			// Completely insane, but if I don't have these two lines in here, the water doesn't render on a Nexus 6
+
+
+vec4 depthColor = vec4(color.rgb * 0.5, 1.0);
+		vec4 traspColor = vec4(color.rgb * 0.45, 0.8);
+		vec4 surfColor = vec4(color.rgb, 1.0);
+
+
+
+					
+
+
+
+
+vec4 nearColor = mix(traspColor, depthColor, color.a)-wavwat;
+
+		color = mix(surfColor*2.0, nearColor*3.0);
+
+
+				
+			vec3 relPos = -worldPos.xyz;
+			float camDist = length(relPos);
+			float cameraDist = camDist / FAR_CHUNKS_DISTANCE;
+		#endif //FANCY
+		
+		float alphaFadeOut = clamp(cameraDist, 0.0, 1.0);
+		color.a = mix(color.a, 1.0, alphaFadeOut) * 0.45;
+	}
+#endif
+
+#ifndef BYPASS_PIXEL_SHADER
+	#ifndef FOG
+		// If the FOG_COLOR isn't used, the reflection on NVN fails to compute the correct size of the constant buffer as the uniform will also be gone from the reflection data
+		color.rgb += FOG_COLOR.rgb * 0.000001;
+	#endif
+#endif
+
+
+
+vec3 waters = worldPos.xyz;
+
+
+
+    float wavwat = sin(TIME * 1.7 + waters.x+waters.y+waters.z+waters.z+waters.x+waters.z) * sin(waters.z) * 0.2;
+  pos.z += wavwat;
+
+
+
+
+
+
+screen_pos.xy = pos.xy / (pos.z+1.0);
+screen_pos.z = pos.z*0.39;
+Pos=pos.xyz;
+xyz=worldPos.xyz;
+t=TIME;
+}

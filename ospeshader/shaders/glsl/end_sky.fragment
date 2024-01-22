@@ -1,0 +1,20 @@
+
+
+#include "vertexVersionCentroidUV.h"
+#include "uniformWorldConstants.h"
+#include "uniformShaderConstants.h"
+#include "uniformPerFrameConstants.h"
+
+attribute POS4 POSITION;
+attribute vec2 TEXCOORD_0;
+
+varying highp vec3 w_pos;
+
+void main()
+{
+    gl_Position = WORLDVIEWPROJ * POSITION;
+
+w_pos = POSITION.xyz;
+
+    uv = (UV_TRANSFORM * vec4(TEXCOORD_0, 0, 1)).xy;
+}

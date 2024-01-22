@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<script src="../../UIEngine.js"></script>
+	<script src="../../scripts/script1.js"></script>
+<link rel="stylesheet" href="../../styles/styles2.css" />
+</head>
+
+<body>  
+  <div class="div_zhuti">
+    <div class="div_beijing_wai" style="width:750px;margin-top:30vh;">  <!-- 宽度 900大  500中 300小-->
+      <div style="text-align:center;">Addon说明</div>
+      <div id="close" class="close-button">x</div>
+      <div class="div_beijing_nei">
+      <div class='div_zitiSize_3' class='div_ziti_purple' style="text-align:center;">ULANG框架</div> 
+      <img src='../../imgs/air1.png' width=10px height=10px></img>
+      <img width=180px height=180px src='../../../ulang_icon.png' ></img>
+      <img src='../../imgs/air1.png' width=10px height=5px></img>
+      <p class='div_ziti_yellow'>ULANG框架（前置）版本：beta V0.1.0 </p>
+      <p class='div_ziti'>  ULANG以MinecraftBE版Addon(附加包)的Script Engine(脚本引擎)为内核，宗旨为创造</p>
+      <p class='div_ziti'>更多方便快捷的接口以及UI部分(主要是菜单型UI,就比如现在这种)，以弥补官方脚本引擎接口的不足</p>
+      <p class='div_ziti'>口的不足之处。</p>
+      <div id='jieshaoui_start_xieyiui' class="button" style="line-height:150%;">查看Addon协议</div>
+      <!-- <div id='jieshaoui_start_wenjuanui' class="button" style="line-height:150%;">填写调查问卷</div> -->
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+ let scriptEngineHandle = null;
+engine.on("facet:updated:core.scripting", function (scriptEngine) {
+  scriptEngineHandle = scriptEngine;
+  });
+  engine.trigger("facet:request", ["core.scripting"]);
+
+  let close = document.getElementById("close");
+  close.addEventListener("click", function () {
+  scriptEngineHandle.triggerEvent("jieshaoui_close_jieshaoui");
+  });
+  let jieshaoui_start_xieyiui = document.getElementById("jieshaoui_start_xieyiui");
+  jieshaoui_start_xieyiui.addEventListener("click", function () {
+  scriptEngineHandle.triggerEvent("jieshaoui_start_xieyiui");
+  });
+  let jieshaoui_start_wenjuanui = document.getElementById("jieshaoui_start_wenjuanui");
+  jieshaoui_start_wenjuanui.addEventListener("click", function () {
+  scriptEngineHandle.triggerEvent("jieshaoui_start_wenjuanui");
+  });
+</script>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<script src="../../UIEngine.js"></script>
+	<script src="../../scripts/script1.js"></script>
+<link rel="stylesheet" href="../../styles/styles2.css" />
+</head>
+
+<body>  
+  <div class="div_zhuti">
+    <div class="div_beijing_wai1" style="width:300px;margin-top:30vh;">  <!-- 宽度 900大  500中 300小-->
+      <div style="text-align:center;">退出</div>
+      <div id="close" class="close-button">x</div>
+      <div class="div_beijing_nei1">
+      <p class='div_ziti'style="text-align:center;">你别无选择</p>
+      <div id='wenjuanui_back_wenjuanui' class="button1" style="line-height:150%;">返回</div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+ let scriptEngineHandle = null;
+engine.on("facet:updated:core.scripting", function (scriptEngine) {
+  scriptEngineHandle = scriptEngine;
+  });
+  engine.trigger("facet:request", ["core.scripting"]);
+
+  let close = document.getElementById("close");
+  close.addEventListener("click", function () {
+  scriptEngineHandle.triggerEvent("wenjuanui_close_exithtml");
+  });
+  let wenjuanui_back_wenjuanui = document.getElementById("wenjuanui_back_wenjuanui");
+  wenjuanui_back_wenjuanui.addEventListener("click", function () {
+  scriptEngineHandle.triggerEvent("wenjuanui_back_wenjuanui");
+  });
+</script>
+</html>

@@ -1,17 +1,25 @@
 {
   "format_version": 1,
   "header": {
-    "description": "§bBy BIYUEHU\n§e防沉迷§r",
+    "description": "§b\n§e防沉迷§r",
     "name": "R18 For Minecraft",
     "uuid": "8e07fe3f-13f2-4f6a-9b9a-8f791413f922",
-    "version": [1, 0, 0]
+    "version": [
+      1,
+      0,
+      0
+    ]
   },
   "modules": [
     {
-      "description": "§bBy BIYUEHU\n§e防沉迷§r",
+      "description": "§b\n§e防沉迷§r",
       "type": "resources",
       "uuid": "09f06c18-63e5-4cc4-b045-7b1d291687de",
-      "version": [1, 0, 0]
+      "version": [
+        1,
+        0,
+        0
+      ]
     }
   ],
   "capabilities": [

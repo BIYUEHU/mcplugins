@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<script src="../../UIEngine.js"></script>
+	<script src="../../scripts/script1.js"></script>
+<link rel="stylesheet" href="../../styles/styles2.css" />
+</head>
+
+<body>  
+  <div class="div_zhuti">
+    <div class="div_beijing_wai" style="width:900px;margin-top:30vh;">  <!-- 宽度 900大  500中 300小-->
+      <div style="text-align:center;">问卷调查</div>
+      <div id="close" class="close-button">x</div>
+      <div class="div_beijing_nei">
+      <p class='div_ziti_pink'style="text-align:center;">NO.1你喜欢这个Addon吗？</p>
+      <img src='../../imgs/air1.png' height=30px></img>
+      <div id="wenjuanui_no1_daan_1" class="button" style="line-height:160%;">喜欢</div>
+      <div id="wenjuanui_no1_daan_2" class="button" style="line-height:160%;">不喜欢</div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+ let scriptEngineHandle = null;
+engine.on("facet:updated:core.scripting", function (scriptEngine) {
+  scriptEngineHandle = scriptEngine;
+  });
+  engine.trigger("facet:request", ["core.scripting"]);
+
+  let close = document.getElementById("close");
+  close.addEventListener("click", function () {
+  scriptEngineHandle.triggerEvent("wenjuanui_close_no1html");
+  });
+  let wenjuanui_no1_daan_1 = document.getElementById("wenjuanui_no1_daan_1");
+  wenjuanui_no1_daan_1.addEventListener("click", function () {
+  scriptEngineHandle.triggerEvent("wenjuanui_no1_daan_1");
+  });
+  let wenjuanui_no1_daan_2 = document.getElementById("wenjuanui_no1_daan_2");
+  wenjuanui_no1_daan_2.addEventListener("click", function () {
+  scriptEngineHandle.triggerEvent("wenjuanui_no1_daan_2");
+  });
+</script>
+</html>

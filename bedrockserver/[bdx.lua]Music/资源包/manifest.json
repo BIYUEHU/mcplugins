@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "header": {
+    "description": "音乐包 ",
+    "name": "音乐包",
+    "uuid": "0905bad1-f0af-43ae-be5f-103e85591733",
+    "version": [
+      2,
+      0,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "音乐包 ",
+      "version": [
+        2,
+        0,
+        0
+      ],
+      "type": "resources",
+      "uuid": "9f17b477-c2c5-48e2-a93b-74a63c73e233"
+    }
+  ]
+}

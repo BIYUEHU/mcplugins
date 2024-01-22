@@ -1,0 +1,9 @@
+{
+	"info": "configfile",
+	"name": "MusicPlayer",
+	"version": [1, 0, 0],
+	"description": "MusicPlayer WebSocket By 碧月狐dada",
+	"author": "碧月狐dada",
+    "port": 1,
+    "uuid": "bec64360-809b-446c-87a1-31a084a87bcb"
+}

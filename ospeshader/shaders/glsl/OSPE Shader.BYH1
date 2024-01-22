@@ -1,0 +1,203 @@
+// __multiversion__
+// This signals the loading code to prepend either #version 100 or #version 300 es as apropriate.
+
+#include "fragmentVersionCentroid.h"
+
+#if __VERSION__ >= 300
+	#ifndef BYPASS_PIXEL_SHADER
+		#if defined(TEXEL_AA) && defined(TEXEL_AA_FEATURE)
+			_centroid in highp vec2 uv0;
+			_centroid in highp vec2 uv1;
+		#else
+			_centroid in vec2 uv0;
+			_centroid in vec2 uv1;
+		#endif
+	#endif
+#else
+	#ifndef BYPASS_PIXEL_SHADER
+		varying vec2 uv0;
+		varying vec2 uv1;
+	#endif
+#endif
+
+varying vec4 color;
+
+#ifdef FOG
+varying vec4 fogColor;
+#endif
+
+#include "uniformShaderConstants.h"
+#include "util.h"
+
+LAYOUT_BINDING(0) uniform sampler2D TEXTURE_0;
+LAYOUT_BINDING(1) uniform sampler2D TEXTURE_1;
+LAYOUT_BINDING(2) uniform sampler2D TEXTURE_2;
+
+void main()
+{
+#ifdef BYPASS_PIXEL_SHADER
+	gl_FragColor = vec4(0, 0, 0, 0);
+	return;
+#else 
+
+#if USE_TEXEL_AA
+	vec4 diffuse = texture2D_AA(TEXTURE_0, uv0);
+#else
+	vec4 diffuse = texture2D(TEXTURE_0, uv0);
+#endif
+	
+#ifdef SEASONS_FAR
+	diffuse.a = 1.0;
+#endif
+
+#if USE_ALPHA_TEST
+	#ifdef ALPHA_TO_COVERAGE
+	#define ALPHA_THRESHOLD 0.05
+	#else
+	#define ALPHA_THRESHOLD 0.5
+	#endif
+	if(diffuse.a < ALPHA_THRESHOLD)
+		discard;
+#endif
+	
+vec4 inColor = color;
+
+#if defined(BLEND)
+	diffuse.a *= inColor.a;
+#endif
+
+#if !defined(ALWAYS_LIT)
+	diffuse *= texture2D( TEXTURE_1, uv1 );
+#endif
+
+#ifndef SEASONS
+	#if !USE_ALPHA_TEST && !defined(BLEND)
+		diffuse.a = inColor.a;
+	#endif
+	
+	diffuse.rgb *= inColor.rgb;
+#else
+	vec2 uv = inColor.xy;
+	diffuse.rgb *= mix(vec3(1.0,1.0,1.0), texture2D( TEXTURE_2, uv).rgb*2.0, inColor.b);
+	diffuse.rgb *= inColor.aaa;
+	diffuse.a = 1.0;
+#endif
+
+/*
+抄袭者:抄袭!我要抄袭!
+杰哥:你看这个add作者，才写了几行代码，就醉了，真是逊啊!
+抄袭者:是啊，这个add作者就是逊啊哈哈
+杰哥:听你那么说，你很勇哦！
+抄袭者:开玩笑，我超勇的，我超会抄袭的啦！
+杰哥:我的房间里有些好康的，想不想懂?
+抄袭者:是什么啊?是新的add代码哦?(嫌弃脸)
+杰哥:什么代码，比add代码还刺激!还可以教你登dua郎!
+抄袭者:登Duang郎?那是什么哦?
+杰哥:你想懂?来，到我的房间康康
+(杰哥拉着抄袭者的手走到了房间里)
+杰哥:来，给你看好康的(杰哥打开了电脑)
+抄袭者:杰，杰哥，这是什么啊?
+杰哥:哎呦！你对我的光影代码感兴趣啦？!
+杰哥:来，让我康康你抄袭了多少代码啊！
+抄袭者:杰哥不要啦！
+(抄袭者推开了杰哥)
+杰哥:听话，让我看看!
+抄袭者:不要!
+(杰哥对抄袭者进行了农夫三拳，抄袭者倒在床上)
+抄袭者:杰哥不要，杰哥不要啊!
+~～～
+(第二天早上)
+杰哥:你小子想把我灌醉，还想打开电脑抄袭我的光影代码，逊!
+杰哥:对了，昨天晚上发生的事，不要对别的抄袭者说
+杰哥:我知道你的QQ号是多少,也知道你的倒卖群
+*/
+
+/*
+//水下光源测试ing...
+//if((FOG_COLOR.b>=FOG_COLOR.r*1.8)&&(FOG_COLOR.g>FOG_COLOR.r*1.5)&&(FOG_COLOR.b>=FOG_COLOR.g*1.1)&&FOG_COLOR.b>0.15){
+//vec3 unwater_lights_color=vec3(0.25,0.5,0.75);
+//diffuse.rgb*=unwater_lights_color;
+//}
+*/
+
+
+
+//HBYS（已废）
+//vec3 torch_color=vec3(0.0,0.0,0.0);
+
+//LJ(已废)
+//diffuse.rgb=(diffuse.rgb*diffuse.rgb)/(diffuse.rgb*diffuse.rgb+0.25);
+
+
+
+//YYYS阴影颜色
+vec3 shadow_color=vec3(0.4,0.5,0.6);
+
+//YYZL阴影照亮
+vec3 shadow_light=shadow_color+uv1.x*(1.6-shadow_color)*1.0;
+
+//YYSX阴影实现
+if(uv1.y<0.875||color.g<0.475){
+diffuse.rgb*=shadow_color;
+}
+
+
+
+
+//RGZBZNMQ（已废）
+//diffuse.rgb*=0.9;
+
+
+
+/*
+//YSHLJ(已废)
+vec3 RealToneMap(vec3 x){
+    float A = 2.15f;
+    float B = 0.10f;
+    float C = 1.85f;
+    float D = 0.20f;
+    float E = 0.50f;
+    float F = 1.00f;
+x=mix(x,vec3(dot(x,vec3(x/3.0))),0.1);
+return (x*(A*x+B))/(x*(C*x+D)+E/F);}
+*/
+
+
+//GUANGYUAN光源
+vec3 night_light = vec3(255./255.,100./255.,20./255.) *2.0* pow(uv1.x,2.0);
+diffuse.rgb += diffuse.rgb*(2.0 * night_light-0.5)*uv1.x;
+
+
+//HUANGHUNGUANGZHAO黄昏光照
+vec4 sunset_color = vec4(1.0,0.6,0.3,0.1);
+
+//ZHENGTIGUANGZHAO整体光照
+vec3 day_color=vec3(2.51,2.16,1.62);
+diffuse.rgb*=day_color;
+
+//WANSHANGTIANKONG晚上天空
+vec4 sky_night_color = vec4(0.0,0.19,0.3,0.4);
+
+//QIANSE浅色
+vec3 light_color=vec3(2.25,0.75,0.0);
+
+//MUSE暮色
+vec3 dusk_color=vec3(0.8,0.75,0.7);
+
+//YESE夜色
+vec3 night_color=vec3(0.45,0.5,0.55);
+
+//RIYUSE日雨色
+vec3 day_rain_color=vec3(123.1,0.5,0.5);
+
+//YEYUSE夜雨色
+vec3 night_rain_color=vec3(0.5,0.5,0.5);
+
+#ifdef FOG
+	diffuse.rgb = mix( diffuse.rgb, fogColor.rgb, fogColor.a );
+#endif
+
+	gl_FragColor = diffuse;
+	
+#endif // BYPASS_PIXEL_SHADER
+}

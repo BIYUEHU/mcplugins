@@ -1,0 +1,12 @@
+{
+  "name": "mcplayerspawn",
+  "version": "0.0.0",
+  "description": "MCPlayerSpawn",
+  "main": "app.js",
+  "author": {
+    "name": "biyuehu"
+  },
+  "dependencies": {
+    "readline": "^1.3.0"
+  }
+}

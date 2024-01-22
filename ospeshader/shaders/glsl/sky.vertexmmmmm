@@ -1,0 +1,36 @@
+
+
+#include "vertexVersionSimple.h"
+#include "uniformWorldConstants.h"
+#include "uniformPerFrameConstants.h"
+#include "uniformShaderConstants.h"
+
+attribute mediump vec4 POSITION;
+attribute vec4 COLOR;
+
+varying vec4 color;
+varying highp vec3 w_pos;
+varying vec4 ccolor;
+
+const float fogNear = 0.3;
+
+void main()
+{
+
+vec4 p = POSITION;
+
+    p.y -= max(length(POSITION.xyz),0.)*0.3;
+
+
+//p.y -=(0.1,0.2,clamp(length(POSITION.xyz),0.0,1.0))*0.35-0.11;
+
+    gl_Position = WORLDVIEWPROJ * p;
+
+w_pos = POSITION.xyz;
+
+   ccolor = CURRENT_COLOR;
+
+color = mix( CURRENT_COLOR, FOG_COLOR, COLOR.r );
+
+}
+

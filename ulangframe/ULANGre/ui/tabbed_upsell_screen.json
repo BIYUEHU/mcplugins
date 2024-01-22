@@ -1,0 +1,100 @@
+// 介绍UI
+{
+  "namespace": "tabbed_upsell",
+  "esbe_panel": {
+    "type": "stack_panel",
+    "offset": [
+      4,
+      4
+    ],
+    "controls": [
+      {
+        "prof": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [
+            "100%",
+            132
+          ],
+          "controls": [
+            {
+              "img": {
+                "type": "image",
+                "texture": "pack_icon",
+                "size": [
+                  128,
+                  128
+                ]
+              }
+            },
+            {
+              "sp": {
+                "type": "panel",
+                "size": [
+                  4,
+                  4
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "changes": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [
+            "100%",
+            128
+          ],
+          "controls": [
+            {
+              "h": {
+                "type": "stack_panel",
+                "size": [
+                  132,
+                  "100%"
+                ],
+                "controls": [
+                  {
+                    "nam": {
+                      "type": "label",
+                      "font_scale_factor": 1.5,
+                      "text": "§6ULANG"
+                    }
+                  },
+                  {
+                    "ch": {
+                      "type": "label",
+                      "font_scale_factor": 1.2,
+                      "text": "§b"
+                    }
+                  }
+                ]
+              }
+            }
+            // {
+            // 	"p":{
+            // 		"type": "stack_panel",
+            // 		"controls": [
+            // 		]
+            // 	}
+            // }
+          ]
+        }
+      }
+    ]
+  },
+  "scroll@common.scrolling_panel": {
+    "$show_background": false,
+    "$scrolling_content": "tabbed_upsell.esbe_panel"
+  },
+  "tabbed_upseel_screen_panel@common_dialogs.main_panel_no_buttons": {
+    "size": [
+      "80%",
+      "80%"
+    ],
+    "$text_name": "§6ULANG",
+    "$child_control": "tabbed_upsell.scroll"
+  }
+}

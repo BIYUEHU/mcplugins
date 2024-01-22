@@ -1,0 +1,261 @@
+@font-face {
+	font-family:"Minecraft";
+	src:url("../fonts/Minecraft.ttf");
+  }
+
+.div_ziti {
+	font-family:"Minecraft";
+}
+
+.div_zhuti {
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+}
+
+.div_beijing {
+	display: flex;
+	position: relative;
+	height: calc(50vh);
+	width: calc(50vh);
+	justify-content: center;
+	align-items: center;
+	background-image: url("../imgs/beijing.png");
+	background-size: 100% 100%;
+}
+
+.div_zuishangmian {
+	display: flex;
+	position: absolute;
+	height: calc(25vh);
+	width: calc(50vh);
+	top: 0;
+	left: 0;
+	justify-content: center;
+	align-items: center;
+}
+
+.div_cha {
+	display: block;
+	position: absolute;
+	height: calc(1vh * 1.5);
+	width: calc(1vh * 1.5);
+	top: calc(1vh * 1.5);
+	right: calc(1vh * 1.5);
+	background-image: url("../imgs/cha_likai.png");
+	background-size: 100% 100%;
+}
+
+.close-button {
+  font-family:"MinecraftTen";
+  position:absolute;
+  right:2px;
+  top:2px;
+  padding:0 5px 0px 5px;
+}
+
+.close-button:hover {
+	background-color:#AEAEAE;
+  }
+  
+.div_shang {
+	display: flex;
+	position: absolute;
+	height: calc(17vh);
+	width: calc(45vh);
+	top: calc(3vh);
+	left: calc(5vh * 0.5);
+	justify-content: center;
+	align-items: center;
+}
+
+.div_wei0 {
+	display: flex;
+	position: absolute;
+	height: calc(17vh);
+	width: calc(45vh);
+	top: calc(1vh);
+	left: calc(-12vh);
+	justify-content: center;
+	align-items: center;
+}
+
+.div_wei1 {
+	display: flex;
+	position: absolute;
+	height: calc(17vh);
+	width: calc(45vh);
+	top: calc(11vh);
+	left: calc(-12vh);
+	justify-content: center;
+	align-items: center;
+}
+
+.div_wei2 {
+	display: flex;
+	position: absolute;
+	height: calc(17vh);
+	width: calc(45vh);
+	top: calc(6vh);
+	left: calc(5vh * 0.6);
+	justify-content: center;
+	align-items: center;
+}
+
+.div_wei3 {
+	display: flex;
+	position: absolute;
+	height: calc(17vh);
+	width: calc(45vh);
+	top: calc(6vh);
+	left: calc(5vh * 3.4);
+	justify-content: center;
+	align-items: center;
+}
+
+.div_xia {
+	display: flex;
+	position: absolute;
+	height: calc(25vh);
+	width: calc(50vh);
+	top: calc(25vh);
+	left: 0;
+}
+
+
+/* 板子 */
+.div_banzi1 {
+	height: calc(17vh);
+	width: calc(45vh);
+	top: calc(5vh);
+	left: calc(5vh * 0.5);
+	background-image: url("../imgs/banzi1_likai.png");
+	background-size: 100% 100%;
+}
+
+.div_banzi2 {
+	height: calc(6vh);
+	width: calc(10vh);
+	background-image: url("../imgs/banzi2.png");
+	background-size: 100% 100%;
+}
+
+.div_banzi3 {
+	height: calc(13vh);
+	width: calc(5vh);
+	background-image: url("../imgs/banzi3.png");
+	background-size: 100% 100%;
+}
+
+.div_banzi4 {
+	height: calc(5vh);
+	width: calc(5vh);
+	background-image: url("../imgs/anniu_likai.png");
+	background-size: 100% 100%;
+}
+
+.div_banzi5 {
+	height: calc(4.5vh);
+	width: calc(13vh);
+	background-image: url("../imgs/banzi5.png");
+	background-size: 100% 100%;
+}
+
+.div_banzi6 {
+	height: calc(5vh);
+	width: calc(5vh);
+	background-image: url("../imgs/anniu_likai.png");
+	background-size: 100% 100%;
+}
+
+/* 空白 */
+.div_kongbai1 {
+	height: calc(1vh);
+	width: calc(7vh);
+	background-image: url("");
+	background-size: 100% 100%;
+}
+
+.div_kongbai2 {
+	height: calc(1vh);
+	width: calc(6vh);
+	background-image: url("");
+	background-size: 100% 100%;
+}
+
+
+/* 按钮 */
+.div_anniu {
+	display: flex;
+	height: calc(5vh);
+	width: calc(5vh);
+	background-image: url("../imgs/anniu_likai.png");
+	background-size: 100% 100%;
+}
+
+.div_anniulie_1 {
+	display: flex;
+	position: absolute;
+	height: calc(5vh);
+	width: calc(45vh);
+	top: 0;
+	left: calc(5vh * 0.5);
+	justify-content: center;
+	align-items: center;
+}
+
+.div_anniulie_2 {
+	display: flex;
+	position: absolute;
+	height: calc(5vh);
+	width: calc(45vh);
+	top: calc(5vh);
+	left: calc(5vh * 0.5);
+	justify-content: center;
+	align-items: center;
+}
+
+.div_anniulie_3 {
+	display: flex;
+	position: absolute;
+	height: calc(5vh);
+	width: calc(45vh);
+	top: calc(10vh);
+	left: calc(5vh * 0.5);
+	justify-content: center;
+	align-items: center;
+}
+
+.div_anniulie_4 {
+	display: flex;
+	position: absolute;
+	height: calc(5vh);
+	width: calc(45vh);
+	top: calc(17vh);
+	left: calc(5vh * 0.5);
+	justify-content: center;
+	align-items: center;
+}
+
+.div_anniu_img {
+	position: relative;
+	height: calc(5vh);
+	width: calc(5vh);
+	background-color: 0;
+	background-image: url("../imgs/null.png");
+	background-size: 100% 100%;
+}
+
+.div_anniu_text {
+	position: absolute;
+	color: aliceblue;
+	height: 1vh;
+	width: 1vh;
+	right: 1vh;
+	bottom: 1vh;
+}
+
+
+

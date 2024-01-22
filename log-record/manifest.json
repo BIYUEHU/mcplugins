@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "header": {
+    "name": "LOG行为记录",
+    "description": "LOG行为记录  SEMOD",
+    "uuid": "bfe6be20-43b0-424e-aa59-5c7c58d9ac93",
+    "version": [
+      1,
+      0,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "LOG行为记录  SEMOD",
+      "type": "client_data",
+      "uuid": "05d2de96-49d2-4ec4-9cd0-c07b6e65d97d",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-import { World } from 'Minecraft';
-import { chatf, log } from '../ulang/ulang.js';
-import * as config from './config.js';
+import { World } from "Minecraft";
+import { chatf, log } from "../ulang/ulang.js";
+import * as config from "./config.js";
 
 const worldsname = config.config.worldsname;
 const nottext = config.config.nottext;
@@ -27,15 +27,14 @@ World.events.beforeChat.subscribe((event) => {
   } else {
     onChat(event);
   }
-})
-
+});
 
 function onChat(event) {
   event.canceled = true;
 
   var playername = event.sender.name;
   var message = event.message;
-  var back = `[ChatPro] <${playername}> ${message}`
+  var back = `[ChatPro] <${playername}> ${message}`;
 
   if (playername == shutlist) {
     chatf(shut, playername);
@@ -44,7 +43,7 @@ function onChat(event) {
     var y = parseInt(event.sender.location.y);
     var z = parseInt(event.sender.location.z);
 
-    var id = event.sender.id
+    var id = event.sender.id;
     var qianxing = event.sender.isSneaking;
     var weiducode = 0;
     var weidu = worldsname[weiducode];
@@ -66,7 +65,7 @@ function onChat(event) {
 
     for (var a = 0; a < nottext.length; a++) {
       if (nottext[a].test(message) == true) {
-        var message = '***';
+        var message = "***";
         chatf(wmyy, "@p");
       }
     }
@@ -81,7 +80,6 @@ function onChat(event) {
   return event;
 }
 
-
 function onshut(event) {
   event.canceled = true;
 
@@ -92,12 +90,11 @@ function onshut(event) {
   chatf(shut_cmd, playername);
   chatf(shut, target);
 
-  var back = `[ChatPro] <${playername}> CMD ${message}`
+  var back = `[ChatPro] <${playername}> CMD ${message}`;
   log(back);
 
   return target;
 }
-
 
 function onshutun(event) {
   event.canceled = true;
@@ -110,17 +107,16 @@ function onshutun(event) {
   chatf(shutun, target);
   shutlist = air;
 
-  var back = `[ChatPro] <${playername}> CMD ${message}`
+  var back = `[ChatPro] <${playername}> CMD ${message}`;
   log(back);
 
   return shutlist;
 }
 
-
 //听说改这个的都没马噢
-const version = '1.0.0';
+const version = "1.0.0";
 console.log(`[HULI]ChatPro加载成功 版本:${version}`);
-console.log(`[HULI]ChatPro By BIYUEHU`);
+console.log(`[HULI]ChatPro `);
 
 /* World.events.beforeexplosion.subscribe((event) => {
   var id = event.source.id;

@@ -1,0 +1,17 @@
+
+#include "fragmentVersionSimple.h"
+#include "settings.h"
+
+varying vec4 color;
+varying highp vec3 w_pos;
+varying vec4 ccolor;
+
+void main()
+{
+
+         gl_FragColor = SkyEffect(ccolor,color,w_pos,1.0);
+
+
+}
+
+

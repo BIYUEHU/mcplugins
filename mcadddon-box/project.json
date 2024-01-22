@@ -1,0 +1,29 @@
+{
+  "assets": [],
+  "build": {
+    "build_id": "60338E89-14",
+    "build_number": 14,
+    "build_time": 1619922406019,
+    "release": false
+  },
+  "encryptLevel": 1,
+  "useFeatures": [],
+  "icon": "res/logo.png",
+  "launchConfig": {
+    "displaySplash": true,
+    "hideLogs": false,
+    "splashIcon": "res/splashIcon.png",
+    "splashText": "MCAddon_Box 0.3.3\\nLive for love",
+    "stableMode": false
+  },
+  "main": "index.js",
+  "name": "MCAddon_Box",
+  "optimization": {
+    "removeOpenCv": true,
+    "unusedResources": false
+  },
+  "packageName": "com.mcaddonbox.byh",
+  "scripts": {},
+  "versionCode": 33,
+  "versionName": "0.3.3"
+}

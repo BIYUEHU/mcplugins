@@ -1,0 +1,72 @@
+{
+  "yinyue1": {
+    "max_distance": 64.0,
+    "sounds": [
+      {
+        "name": "sounds/oc/1",
+        "stream": true,
+        "volume": 0.5
+      }
+    ]
+  },
+  "yinyue2": {
+    "max_distance": 64.0,
+    "sounds": [
+      {
+        "name": "sounds/oc/2",
+        "stream": true,
+        "volume": 0.5
+      }
+    ]
+  },
+  "yinyue3": {
+    "max_distance": 64.0,
+    "sounds": [
+      {
+        "name": "sounds/oc/3",
+        "stream": true,
+        "volume": 0.5
+      }
+    ]
+  },
+  "yinyue4": {
+    "max_distance": 64.0,
+    "sounds": [
+      {
+        "name": "sounds/oc/4",
+        "stream": true,
+        "volume": 0.5
+      }
+    ]
+  },
+  "yinyue5": {
+    "max_distance": 64.0,
+    "sounds": [
+      {
+        "name": "sounds/oc/5",
+        "stream": true,
+        "volume": 0.5
+      }
+    ]
+  },
+  "yinyue6": {
+    "max_distance": 64.0,
+    "sounds": [
+      {
+        "name": "sounds/oc/6",
+        "stream": true,
+        "volume": 0.5
+      }
+    ]
+  },
+  "record.wait": {
+    "max_distance": 64.0,
+    "sounds": [
+      {
+        "name": "sounds/oc/5",
+        "stream": true,
+        "volume": 0.5
+      }
+    ]
+  }
+}

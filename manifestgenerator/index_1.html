@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manifest生成器-资源包</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body
+    style="
+      background: url(https://api.ixiaowai.cn/api/api.php);
+      background-size: 100% 100%;
+      background-attachment: fixed;
+    "
+  >
+    <div class="zj">
+      <div class="mczt" style="font-size: 160%">Manifest生成器-资源包</div>
+      <div class="mczt" style="font-size: 130%">包名字</div>
+      <input class="input1" id="packname" name="packname" />
+      <div class="mczt" style="font-size: 130%">包简介</div>
+      <input class="input1" id="jianjie" name="jianjie" />
+      <div class="mczt" style="font-size: 130%">
+        包主版本号,次版本号,修正版本号
+      </div>
+      <input class="input1" id="v1" name="v1" />
+      <div></div>
+      <input class="input1" id="v2" name="v2" />
+      <div></div>
+      <input class="input1" id="v3" name="v3" />
+      <div class="mczt" style="font-size: 130%">包作者</div>
+      <input class="input" id="by" name="by" />
+      <div class="mczt" style="font-size: 130%">包协议</div>
+      <input class="input" id="xy" name="xy" />
+      <div class="mczt" style="font-size: 130%">包网站主页URL</div>
+      <input class="input" id="url" name="url;" />
+      <div></div>
+      <input
+        type="button"
+        class="button"
+        value="生成"
+        onclick="javascrtpt:manifest()"
+      />
+      <div id="info" class="mczt" style="font-size: 110%"></div>
+      <h6 color="#37D61E">By <a class="url" href="https://.github.io"></a></h6>
+    </div>
+    <script>
+      function uuid() {
+        var s = [];
+        var hexDigits = "0123456789abcdef";
+        for (var i = 0; i < 36; i++) {
+          s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+        }
+        s[14] = "4";
+        s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);
+        s[8] = s[13] = s[18] = s[23] = "-";
+
+        var uuid = s.join("");
+        return uuid;
+      }
+
+      function manifest() {
+        var packname = document.getElementById("packname").value;
+        var jianjie = document.getElementById("jianjie").value;
+        var v1 = document.getElementById("v1").value;
+        var v2 = document.getElementById("v2").value;
+        var v3 = document.getElementById("v3").value;
+        if (
+          packname == "" ||
+          jianjie == "" ||
+          v1 == "" ||
+          v2 == "" ||
+          v3 == ""
+        ) {
+          alert("请填写完必填内容！\n（红色背景输入框的均为必填）");
+        } else {
+          var by = document.getElementById("by").value;
+          var xy = document.getElementById("xy").value;
+          var url = document.getElementById("url").value;
+          if (by == null) {
+            var by = "manifest生成器";
+          }
+          if (xy == null) {
+            var xy = "";
+          }
+          if (url == null) {
+            var url = "";
+          }
+
+          var manifesttext =
+            '{"format_version":1,"header":{"description":"' +
+            jianjie +
+            '","name":"' +
+            packname +
+            '","uuid":"' +
+            uuid() +
+            '","version":[' +
+            v1 +
+            "," +
+            v2 +
+            "," +
+            v3 +
+            ']},"modules":[{"description":"' +
+            jianjie +
+            '","type":"resources","uuid":"' +
+            uuid() +
+            '","version":[' +
+            v1 +
+            "," +
+            v2 +
+            "," +
+            v3 +
+            ']}],"metadata":{"authors":["' +
+            by +
+            '"],"license":"' +
+            xy +
+            '","url":"' +
+            url +
+            '"}}';
+          console.log(manifesttext);
+          var info = document.getElementById("info");
+          info.innerHTML = manifesttext;
+        }
+      }
+    </script>
+  </body>
+</html>
